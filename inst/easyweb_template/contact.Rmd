@@ -1,7 +1,39 @@
 ---
+title: "Contact information"
 ---
 
 <link rel="stylesheet" href="styles.css" type="text/css">
 
+### E-mail
+
+e_mail_1  
+
+e_mail_2
+
+### Address
+
+street, number, city
+
+### Phone
+
+phone_number_1  
+
+phone_number_2
+
+### Links
+
+My_site_at_my_institution
+
+My_LinkedId
+
+My_researchgate
+
+Follow_my_blog
+
 github_link
+
 facebook_link
+
+
+
+
