@@ -1,5 +1,5 @@
 Package: easyweb
-Title: What the Package Does (One Line, Title Case)
+Title: A fast and easy way to build your own website
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "First",
