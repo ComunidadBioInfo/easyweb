@@ -3,8 +3,8 @@ Title: A fast and easy way to build your own website
 Version: 0.0.0.9000
 Authors@R: 
     c(
-         person("Claire", "Apellido", role = c("aut"), 
-    email = "emailr@gmail.com", comment = c(ORCID = "su_id")),
+         person("Claire", "Rioualen", role = c("aut"), 
+    email = "rioualenclaire@gmail.com", comment = c(ORCID = "0000-0002-7684-8679")),
          person(given = "Mirna",
            family = "Vazquez-Rosas-Landa",
            role = c("aut", "cre"),
