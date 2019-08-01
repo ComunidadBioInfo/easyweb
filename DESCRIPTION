@@ -2,11 +2,19 @@ Package: easyweb
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "Mirna",
+    c(
+         person("Claire", "Apellido", role = c("aut"), 
+    email = "emailr@gmail.com", comment = c(ORCID = "su_id")),
+         person(given = "Mirna",
            family = "Vazquez-Rosas-Landa",
            role = c("aut", "cre"),
            email = "mirnavrl@gmail.com",
-           comment = c(ORCID = "0000-0002-6928-7930))
+           comment = c(ORCID = "0000-0002-6928-7930")),
+         person("Sami", "Apellido", role = c("aut"), 
+    email = "email", comment = c(ORCID = "su_id")),
+        person("Leonardo", "Collado-Torres", role = c("aut", "cre"), 
+    email = "lcolladotor@gmail.com", comment = c(ORCID = "0000-0003-2140-308X"))
+    )
 Description: What the package does (one paragraph).
 License: What license it uses
 Encoding: UTF-8
