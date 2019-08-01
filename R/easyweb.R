@@ -13,7 +13,7 @@ easyweb <- function(web_tsv, path = tempdir(), publish = FALSE, overwrite = FALS
     ## Read the format
     web_tsv <- read_web_tsv(web_tsv)
 
-    templates <- c('index.Rmd', '_config.yml', '_site.yml', 'presentations.Rmd', 'publications.Rmd', 'contact.Rmd')
+    templates <- c('index.Rmd', '_config.yml', '_site.yml', 'presentations.Rmd', 'publications.Rmd', 'contact.Rmd', 'avatar.jpg')
     purrr::walk(templates, move_template_file, path = path, overwrite = overwrite)
 
     ## Use web_tsv to update the template files
