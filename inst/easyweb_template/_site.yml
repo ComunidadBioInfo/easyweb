@@ -1,0 +1,24 @@
+name: "person_name"
+output_dir: "."
+navbar:
+  title: "person_name"
+  left:
+    - text: "Presentations"
+      href: presentations.html
+    - text: "Publications"
+      href: publications.html
+    - text: "Contact"
+      href: contact.html
+  right:
+    - icon: fa-envelope fa-lg
+      href: contact.html
+    - icon: fa-github fa-lg
+      href: http://github.com/github_username
+    - icon: fa-twitter fa-lg
+      href: https://twitter.com/twitter_username
+    - icon: fa-linkedin fa-lg
+      href: https://www.linkedin.com/in/linkedin_username/
+output:
+  html_document:
+    theme: paper
+    css: 'styles.css'
