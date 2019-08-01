@@ -10,8 +10,8 @@ Authors@R:
            role = c("aut", "cre"),
            email = "mirnavrl@gmail.com",
            comment = c(ORCID = "0000-0002-6928-7930")),
-         person("Samuel David", "Gamboa-Tuz", role = c("aut"), 
-    email = "email", comment = c(ORCID = "0000-0002-6863-7943")),
+         person("Samuel David", "Gamboa-Tuz", role = c("PhD student"), 
+    email = "sd.gamboa.t@gmail.com", comment = c(ORCID = "0000-0002-6863-7943")),
         person("Leonardo", "Collado-Torres", role = c("aut", "cre"), 
     email = "lcolladotor@gmail.com", comment = c(ORCID = "0000-0003-2140-308X"))
     )
