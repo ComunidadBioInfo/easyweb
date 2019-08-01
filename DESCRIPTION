@@ -1,21 +1,24 @@
 Package: easyweb
 Title: A fast and easy way to build your own website
-Version: 0.0.0.9000
+Version: 0.99.0
 Authors@R: 
     c(
          person("Claire", "Rioualen", role = c("aut"), 
     email = "rioualenclaire@gmail.com", comment = c(ORCID = "0000-0002-7684-8679")),
          person(given = "Mirna",
            family = "Vazquez-Rosas-Landa",
-           role = c("aut", "cre"),
+           role = c("aut"),
            email = "mirnavrl@gmail.com",
            comment = c(ORCID = "0000-0002-6928-7930")),
-         person("Samuel David", "Gamboa-Tuz", role = c("PhD student"), 
+         person("Samuel David", "Gamboa-Tuz", role = c("aut"), 
     email = "sd.gamboa.t@gmail.com", comment = c(ORCID = "0000-0002-6863-7943")),
         person("Leonardo", "Collado-Torres", role = c("aut", "cre"), 
     email = "lcolladotor@gmail.com", comment = c(ORCID = "0000-0003-2140-308X"))
     )
-Description: What the package does (one paragraph).
+Description: This package provides a fast and easy way to build your own website
+    in order to start creating your online presence. The website will be freely
+    hosted by GitHub.
 License: What license it uses
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 6.1.1
