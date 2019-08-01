@@ -19,8 +19,16 @@ easyweb <- function(web_tsv, path = tempdir(), publish = FALSE, overwrite = FALS
     ## Use web_tsv to update the template files
 
     update_template(file.path(path, 'publications.Rmd'), 'publications_list',  paste0('* ', web_tsv$value[web_tsv$tag == 'publication'], '\n', collapse = ''))
-    update_template(file.path(path, 'contact.Rmd'), 'github_link',  paste0('* [', web_tsv$value[web_tsv$tag == 'github'], '](https://github.com/', web_tsv$value[web_tsv$tag == 'github'], ')\n', collapse = ''))
-    update_template(file.path(path, 'contact.Rmd'), 'facebook_link',  if(sum(web_tsv$tag == 'facebook') > 0) paste0('* [', web_tsv$value[web_tsv$tag == 'facebook'], '](https://facebook.com/', web_tsv$value[web_tsv$tag == 'facebook'], ')\n', collapse = '') else '' )
+    purrr::pwalk(
+        list(
+            c('github', 'facebook'),
+            c('github_link', 'facebook_link'),
+            c('https://github.com/', 'https://facebook.com/')
+        ),
+        update_contact_link,
+        web_tsv = web_tsv,
+        path = path
+    )
 
 
     ## TODO
