@@ -8,17 +8,14 @@ title: "Contact information"
 
 e_mail_1  
 
-e_mail_2
-
 ### Address
 
-street, number, city
+address
 
 ### Phone
 
 phone_number_1  
 
-phone_number_2
 
 ### Links
 

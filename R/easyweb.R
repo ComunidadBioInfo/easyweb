@@ -2,10 +2,10 @@ easyweb <- function(web_tsv, path = tempdir(), publish = FALSE, overwrite = FALS
 
 
     ## Check publish
-    check_logical(publish)
+    check_logical(publish, "publish")
 
     ## Check overwrite
-    check_logical(overwrite)
+    check_logical(overwrite, "overwrite")
 
     ## Check path
     ## TODO
@@ -50,12 +50,12 @@ easyweb <- function(web_tsv, path = tempdir(), publish = FALSE, overwrite = FALS
 }
 
 # ## Fake web_tsv
-# dir.create('~/Desktop/test', showWarnings = FALSE)
-# web_tab <- data.frame(
-#     tag = c('name', 'github', 'linkedin', 'googlescholar', 'publication', 'publication', 'presentation', 'presentation'),
-#     value = c('Leonardo Collado-Torres', 'lcolladotor', 'linkedid_username', 'h57-MykAAAAJ', 'doi1', 'doi2', 'title', 'title')
-# )
-# write.table(web_tab, file = '~/Desktop/test/web.tsv', sep = '\t', quote = FALSE, row.names = FALSE)
-# easyweb('~/Desktop/test/web.tsv', path = '~/Desktop/test', overwrite = TRUE)
+ # dir.create('~/Desktop/test', showWarnings = FALSE)
+ # web_tab <- data.frame(
+ #     tag = c('name', 'github', 'linkedin', 'googlescholar', 'publication', 'publication', 'presentation', 'presentation'),
+ #     value = c('Leonardo Collado-Torres', 'lcolladotor', 'linkedid_username', 'h57-MykAAAAJ', 'doi1', 'doi2', 'title', 'title')
+ # )
+ # write.table(web_tab, file = '~/Desktop/test/web.tsv', sep = '\t', quote = FALSE, row.names = FALSE)
+ # easyweb('~/Desktop/test/web.tsv', path = '~/Desktop/test', overwrite = TRUE)
+ # web_tsv <- '~/Desktop/test/web.tsv'
 
-# web_tsv <- '~/Desktop/test/web.tsv'
