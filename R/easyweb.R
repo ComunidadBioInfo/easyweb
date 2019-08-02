@@ -2,10 +2,10 @@ easyweb <- function(web_tsv, path = tempdir(), publish = FALSE, overwrite = FALS
 
 
     ## Check publish
-    check_logical(publish)
+    check_logical(publish, "publish")
 
     ## Check overwrite
-    check_logical(overwrite)
+    check_logical(overwrite, "overwrite")
 
     ## Check path
     ## TODO
@@ -13,12 +13,12 @@ easyweb <- function(web_tsv, path = tempdir(), publish = FALSE, overwrite = FALS
     ## Read the format
     web_tab <- read_web_tsv(web_tsv)
 
-    templates <- c('index.Rmd', '_config.yml', '_site.yml', 'presentations.Rmd', 'publications.Rmd', 'contact.Rmd', 'avatar.jpg', 'sample_presentation.pdf')
+    templates <- c('index.Rmd', '_config.yml', '_site.yml', 'presentations.Rmd', 'publications.Rmd', 'contact.Rmd', 'avatar.jpg')
     purrr::walk(templates, move_template_file, path = path, overwrite = overwrite)
 
-    ## Update the template files
-    update_presentations(path = path, web_tab = web_tab)
-    create_citations(path = path, web_tab = web_tab)
+    ## Use web_tsv to update the template files
+
+    update_template(file.path(path, 'publications.Rmd'), 'publications_list',  paste0('* ', web_tab$value[web_tab$tag == 'publication'], '\n', collapse = ''))
     update_publications_scholar(path = path, web_tab = web_tab)
     purrr::pwalk(
         list(
@@ -37,7 +37,8 @@ easyweb <- function(web_tsv, path = tempdir(), publish = FALSE, overwrite = FALS
     update_email(path = path, web_tab = web_tab)
     update_site_config(path = path, web_tab = web_tab)
 
-    ## Make it and rproject
+
+    ## TODO
 
     ## Create the website
     rmarkdown::render_site(input = path)

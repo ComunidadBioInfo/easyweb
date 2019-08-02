@@ -25,7 +25,3 @@ linkedin_link
 researchgate_link
 
 facebook_link
-
-
-
-
