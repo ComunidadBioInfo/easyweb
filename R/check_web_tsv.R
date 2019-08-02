@@ -11,7 +11,7 @@ check_web_tsv <- function(web_tsv) {
 
     ## Check that table has 2 columns
 
-    web_tab <- read.table(web_tsv, stringsAsFactors = FALSE, sep = '\t')
+    web_tab <- utils::read.table(web_tsv, stringsAsFactors = FALSE, sep = '\t')
     colnames(web_tab) <- c('tag', 'value')
     if(ncol(web_tab) != 2) {
         stop("File `web_tsv` is not correctly formatted. Please provide a 2-column tab-delimited file.", call. = FALSE)
