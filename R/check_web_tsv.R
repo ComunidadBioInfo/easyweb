@@ -1,15 +1,15 @@
-check_web_tsv <- function(x) {
+check_web_tsv <- function(web_tsv) {
 
     ## TODO
-    if(!file.exists(x)) {
+    if(!file.exists(web_tsv)) {
         stop()
     }
 
-    web_tsv <- read.table(x, stringsAsFactors = FALSE)
-    colnames(web_tsv) <- c('tag', 'value')
+    web_tab <- read.table(web_tsv, stringsAsFactors = FALSE)
+    colnames(web_tab) <- c('tag', 'value')
 
     ## TODO checks
 
     ## Done!
-    web_tsv
+    web_tab
 }

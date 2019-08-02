@@ -1,14 +1,16 @@
-locate_template <- function(x) {
+locate_template <- function(template) {
 
     ## Check the input
-    x <- check_template(x)
+    template <- check_template(template)
 
-    template <- system.file('inst', 'easyweb_template', x, package = 'easyweb')
+    template_file <- system.file('inst', 'easyweb_template', template, package = 'easyweb')
 
     ## TODO: better error message
-    if(!file.exists(template)) stop()
+    if(!file.exists(template_file)) {
+        stop()
+    }
 
-    template
+    template_file
 }
 
 # locate_template('index.Rmd')

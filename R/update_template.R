@@ -1,5 +1,5 @@
-update_template <- function(x, tag, value) {
-    text <- readLines(x)
+update_template <- function(template_new_file, tag, value) {
+    text <- readLines(template_new_file)
     text[text == tag] <- value
-    writeLines(text, con = x)
+    writeLines(text, con = template_new_file)
 }

@@ -1,8 +1,15 @@
-move_template_file <- function(x, path = tempdir(), overwrite = FALSE) {
+move_template_file <- function(template, path = tempdir(), overwrite = FALSE) {
 
-    template_file <- locate_template(x)
+    template_file <- locate_template(template)
     new_file <- file.path(path, basename(template_file))
-    file.copy(from = template_file, to = new_file, overwrite = overwrite)
+    result <- file.copy(from = template_file, to = new_file, overwrite = overwrite)
+
+    ## TODO
+    if(!result) {
+        stop()
+    }
+
+    return(invisible(result))
 }
 
 

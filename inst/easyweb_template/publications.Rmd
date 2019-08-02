@@ -7,3 +7,5 @@
 
 publications_list
 
+scholar_list
+
