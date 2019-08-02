@@ -3,9 +3,20 @@
 
 <link rel="stylesheet" href="styles.css" type="text/css">
 
-# My publication list
+# Main publications
 
-publications_list
+```{r, results = 'asis', echo = FALSE, warning = FALSE, message = FALSE, eval = file.exists('citations.bib')}
+library('knitcitations')
+bib <- read.bibtex('citations.bib')
+
+## Mention as cited
+x <- citep(bib)
+
+## Print bibliography
+print(bibliography())
+```
+
+`r if(file.exists('citations.bib')) "Download the main publications [bibtex tile]('citations.bib')." `
 
 scholar_list
 
