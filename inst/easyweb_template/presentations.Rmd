@@ -6,12 +6,15 @@
 presentations_list
 
 
+_We suggest that you update your presentation list following one of the formats shown below:_
+
 ## Poster
 
-### [Title](file.pdf) Description (Event, Place, Date)
+1. Poster Title. Description (Event, Place, Date) [PDF](sample_presentation.pdf)
+1. [Poster Title](sample_presentation.pdf) Description (Event, Place, Date)
 
 ## Talk
 
-### [Title](file.pdf) Description (Event, Place, Date)
-
+1. Talk Title. Description (Event, Place, Date) [PDF](sample_presentation.pdf)
+1. [Title](sample_presentation.pdf) Description (Event, Place, Date)
 
