@@ -51,8 +51,8 @@ easyweb <- function(web_tsv, path = tempdir(), publish = FALSE, overwrite = FALS
 # ## Fake web_tsv
 # dir.create('~/Desktop/test', showWarnings = FALSE)
 # web_tab <- data.frame(
-#     tag = c('name', 'github', 'linkedin', 'googlescholar', 'doi', 'doi', 'presentation', 'presentation'),
-#     value = c('Leonardo Collado-Torres', 'lcolladotor', 'linkedid_username', 'h57-MykAAAAJ', '10.1038/s41593-018-0197-y', '10.1038/nbt.3838', 'title', 'title')
+#     tag = c('name', 'github', 'linkedin', 'googlescholar', 'doi', 'doi', 'presentation', 'presentation', 'email', 'email'),
+#     value = c('Leonardo Collado-Torres', 'lcolladotor', 'linkedid_username', 'h57-MykAAAAJ', '10.1038/s41593-018-0197-y', '10.1038/nbt.3838', 'title', 'title', 'lcolladotor@gmail.com', 'leo.collado@libd.org')
 # )
 # write.table(web_tab, file = '~/Desktop/test/web.tsv', sep = '\t', quote = FALSE, row.names = FALSE)
 # easyweb('~/Desktop/test/web.tsv', path = '~/Desktop/test', overwrite = TRUE)
