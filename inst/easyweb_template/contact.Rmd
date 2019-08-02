@@ -6,31 +6,27 @@ title: "Contact information"
 
 ### E-mail
 
-e_mail_1  
-
-e_mail_2
+email_list
 
 ### Address
 
-street, number, city
+address_list
 
 ### Phone
 
-phone_number_1  
-
-phone_number_2
+phone_list
 
 ### Links
 
-My_site_at_my_institution
-
-My_LinkedId
-
-My_researchgate
-
-Follow_my_blog
+institution_link
 
 github_link
+
+blog_link
+
+linkedin_link
+
+researchgate_link
 
 facebook_link
 
