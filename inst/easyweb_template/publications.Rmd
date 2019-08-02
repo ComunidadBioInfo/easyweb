@@ -6,6 +6,8 @@
 # Main publications
 
 ```{r publications, results = 'asis', echo = FALSE, warning = FALSE, message = FALSE, eval = file.exists('citations.bib')}
+## If you need to manually install it use:
+# install.packages('knitcitations')
 library('knitcitations')
 bib <- read.bibtex('citations.bib')
 
