@@ -17,8 +17,7 @@ easyweb <- function(web_tsv, path = tempdir(), publish = FALSE, overwrite = FALS
     purrr::walk(templates, move_template_file, path = path, overwrite = overwrite)
 
     ## Use web_tsv to update the template files
-
-    update_template(file.path(path, 'publications.Rmd'), 'publications_list',  paste0('* ', web_tab$value[web_tab$tag == 'publication'], '\n', collapse = ''))
+    create_citations(path = path, web_tab = web_tab)
     update_publications_scholar(path = path, web_tab = web_tab)
     purrr::pwalk(
         list(
@@ -52,8 +51,8 @@ easyweb <- function(web_tsv, path = tempdir(), publish = FALSE, overwrite = FALS
 # ## Fake web_tsv
 # dir.create('~/Desktop/test', showWarnings = FALSE)
 # web_tab <- data.frame(
-#     tag = c('name', 'github', 'linkedin', 'googlescholar', 'publication', 'publication', 'presentation', 'presentation'),
-#     value = c('Leonardo Collado-Torres', 'lcolladotor', 'linkedid_username', 'h57-MykAAAAJ', 'doi1', 'doi2', 'title', 'title')
+#     tag = c('name', 'github', 'linkedin', 'googlescholar', 'doi', 'doi', 'presentation', 'presentation', 'email', 'email'),
+#     value = c('Leonardo Collado-Torres', 'lcolladotor', 'linkedid_username', 'h57-MykAAAAJ', '10.1038/s41593-018-0197-y', '10.1038/nbt.3838', 'title', 'title', 'lcolladotor@gmail.com', 'leo.collado@libd.org')
 # )
 # write.table(web_tab, file = '~/Desktop/test/web.tsv', sep = '\t', quote = FALSE, row.names = FALSE)
 # easyweb('~/Desktop/test/web.tsv', path = '~/Desktop/test', overwrite = TRUE)
