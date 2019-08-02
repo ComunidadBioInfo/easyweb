@@ -1,3 +1,37 @@
+#' Create an easyweb rmarkdown website
+#'
+#' This function takes as input a two column table with a set of `tag`s and
+#' `value`s that are used to construct a rmarkdown website that you can then
+#' modify yourself and publish. This website will help you get your online
+#' presence started!
+#'
+#' @param web_tsv The path to a tab-separated file with `tag`s on the first
+#' column and `value`s on the second. Check the example table in the package
+#' for a template.
+#' @param path The path where you website files will be saved to.
+#' @param publish Whether to publish your website (currently not implemented).
+#' @param overwrite Whether to overwrite the files.
+#'
+#' @return The path to your website.
+#' @export
+#'
+#' @examples
+#'
+#' ## Example easyweb table
+#' options(width = 200)
+#' easyweb_example
+#'
+#' ## Create an example website directory where the files will be saved
+#' example_website_path <- file.path(tempdir(), 'easyweb')
+#' dir.create(example_website_path, showWarnings = FALSE)
+#' example_tsv <- file.path(example_website_path, 'web.tsv')
+#'
+#' ## Save the example table as a file
+#' write.table(easyweb_example, file = example_tsv, sep = '\t', quote = FALSE, row.names = FALSE)
+#'
+#' ## Build the website
+#' easyweb(example_tsv, path = example_website_path, overwrite = TRUE)
+#'
 easyweb <- function(web_tsv, path = tempdir(), publish = FALSE, overwrite = FALSE) {
 
 
@@ -13,12 +47,12 @@ easyweb <- function(web_tsv, path = tempdir(), publish = FALSE, overwrite = FALS
     ## Read the format
     web_tab <- read_web_tsv(web_tsv)
 
-    templates <- c('index.Rmd', '_config.yml', '_site.yml', 'presentations.Rmd', 'publications.Rmd', 'contact.Rmd', 'avatar.jpg')
+    templates <- c('index.Rmd', '_config.yml', '_site.yml', 'presentations.Rmd', 'publications.Rmd', 'contact.Rmd', 'avatar.jpg', 'sample_presentation.pdf')
     purrr::walk(templates, move_template_file, path = path, overwrite = overwrite)
 
-    ## Use web_tsv to update the template files
-
-    update_template(file.path(path, 'publications.Rmd'), 'publications_list',  paste0('* ', web_tab$value[web_tab$tag == 'publication'], '\n', collapse = ''))
+    ## Update the template files
+    update_presentations(path = path, web_tab = web_tab)
+    create_citations(path = path, web_tab = web_tab)
     update_publications_scholar(path = path, web_tab = web_tab)
     purrr::pwalk(
         list(
@@ -38,7 +72,7 @@ easyweb <- function(web_tsv, path = tempdir(), publish = FALSE, overwrite = FALS
     update_site_config(path = path, web_tab = web_tab)
 
 
-    ## TODO
+    ## Make it an rproject
 
     ## Create the website
     rmarkdown::render_site(input = path)
@@ -54,14 +88,3 @@ easyweb <- function(web_tsv, path = tempdir(), publish = FALSE, overwrite = FALS
 
     return(path)
 }
-
-# ## Fake web_tsv
-# dir.create('~/Desktop/test', showWarnings = FALSE)
-# web_tab <- data.frame(
-#     tag = c('name', 'twitter', 'github', 'linkedin', 'googlescholar', 'doi', 'doi', 'presentation', 'presentation', 'email', 'email', 'address', 'blog', 'phone', 'phone', 'interest', 'interest', 'introduction'),
-#     value = c('Leonardo Collado-Torres', 'fellgernon', 'lcolladotor', 'lcollado', 'h57-MykAAAAJ', '10.1038/s41593-018-0197-y', '10.1038/nbt.3838', '[CDSB2019 workshop](https://github.com/ComunidadBioInfo/cdsb2019). Taught how to make R packages (TIB2019, Cuernavaca, July 2019)', 'LIIGH 2019. recount-brain and BrainSEQ Phase II scientific talk (LIIGH seminar, Juriquilla, August 2019)', 'lcolladotor@gmail.com', 'leo.collado@libd.org', 'Baltimore, MD, USA', 'https://lcolladotor.github.io', '+1 123 456 7899', '+1 012 345 6789', 'R programming', 'Genomics', "Hello! I'm interested in teaching others how to build R packages, particularly Latin Americans.")
-# )
-# write.table(web_tab, file = '~/Desktop/test/web.tsv', sep = '\t', quote = FALSE, row.names = FALSE)
-# easyweb('~/Desktop/test/web.tsv', path = '~/Desktop/test', overwrite = TRUE)
-
-# web_tsv <- '~/Desktop/test/web.tsv'

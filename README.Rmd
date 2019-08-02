@@ -17,43 +17,41 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of easyweb is to ...
+The goal of easyweb is to help you get started with making your [RMarkdown website](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html). It uses a two column table with some information about you in order to build a website that you can edit and polish later following instructions from [Emily Zabor](http://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html) and from [here](https://robertmitchellv.com/blog-building-site-with-rmarkdown.html).
 
 ## Installation
 
-You can install the released version of easyweb from [CRAN](https://CRAN.R-project.org) with:
+You can install the development version from [GitHub](https://github.com/) with:
 
 ``` r
-install.packages("easyweb")
-```
-
-And the development version from [GitHub](https://github.com/) with:
-
-``` r
-# install.packages("devtools")
-devtools::install_github("ComunidadBioInfo/easyweb")
+# install.packages("remotes")
+remotes::install_github("ComunidadBioInfo/easyweb")
 ```
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Here is an example table with the information that `easyweb::easyweb()` requires in order to get you started with your website.
 
-```{r example, eval = FALSE}
+```{r example}
 library(easyweb)
-## basic example code
+
+## Example easyweb table
+options(width = 200)
+easyweb_example
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+Next, you can save this object into a tab-separated table and use it as input for `easyweb::easyweb()` which will build your website in the specified `path`.
 
-```{r cars}
-summary(cars)
+```{r build_website, eval = FALSE}
+## Create an example website directory where the files will be saved
+example_website_path <- file.path(tempdir(), 'easyweb')
+dir.create(example_website_path, showWarnings = FALSE)
+example_tsv <- file.path(example_website_path, 'web.tsv')
+
+## Save the example table as a file
+write.table(easyweb_example, file = example_tsv, sep = '\t',
+    quote = FALSE, row.names = FALSE)
+
+## Build the website
+easyweb(example_tsv, path = example_website_path, overwrite = TRUE)
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!

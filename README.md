@@ -7,53 +7,72 @@
 
 <!-- badges: end -->
 
-The goal of easyweb is to …
+The goal of easyweb is to help you get started with making your
+[RMarkdown
+website](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html). It
+uses a two column table with some information about you in order to
+build a website that you can edit and polish later following
+instructions from [Emily
+Zabor](http://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html)
+and from
+[here](https://robertmitchellv.com/blog-building-site-with-rmarkdown.html).
 
 ## Installation
 
-You can install the released version of easyweb from
-[CRAN](https://CRAN.R-project.org) with:
+You can install the development version from
+[GitHub](https://github.com/) with:
 
 ``` r
-install.packages("easyweb")
-```
-
-And the development version from [GitHub](https://github.com/) with:
-
-``` r
-# install.packages("devtools")
-devtools::install_github("ComunidadBioInfo/easyweb")
+# install.packages("remotes")
+remotes::install_github("ComunidadBioInfo/easyweb")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Here is an example table with the information that `easyweb::easyweb()`
+requires in order to get you started with your website.
 
 ``` r
 library(easyweb)
-## basic example code
+
+## Example easyweb table
+options(width = 200)
+easyweb_example
+#>              tag                                                                                                                             value
+#> 1           name                                                                                                           Leonardo Collado-Torres
+#> 2        twitter                                                                                                                        fellgernon
+#> 3         github                                                                                                                       lcolladotor
+#> 4       linkedin                                                                                                                          lcollado
+#> 5  googlescholar                                                                                                                      h57-MykAAAAJ
+#> 6            doi                                                                                                         10.1038/s41593-018-0197-y
+#> 7            doi                                                                                                                  10.1038/nbt.3838
+#> 8   presentation [CDSB2019 workshop](https://github.com/ComunidadBioInfo/cdsb2019). Taught how to make R packages (TIB2019, Cuernavaca, July 2019)
+#> 9   presentation                          LIIGH 2019. recount-brain and BrainSEQ Phase II scientific talk (LIIGH seminar, Juriquilla, August 2019)
+#> 10         email                                                                                                             lcolladotor@gmail.com
+#> 11         email                                                                                                              leo.collado@libd.org
+#> 12       address                                                                                                                Baltimore, MD, USA
+#> 13          blog                                                                                                     https://lcolladotor.github.io
+#> 14         phone                                                                                                                   +1 123 456 7899
+#> 15         phone                                                                                                                   +1 012 345 6789
+#> 16      interest                                                                                                                     R programming
+#> 17      interest                                                                                                                          Genomics
+#> 18  introduction                                   Hello! I'm interested in teaching others how to build R packages, particularly Latin Americans.
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+Next, you can save this object into a tab-separated table and use it as
+input for `easyweb::easyweb()` which will build your website in the
+specified `path`.
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+## Create an example website directory where the files will be saved
+example_website_path <- file.path(tempdir(), 'easyweb')
+dir.create(example_website_path, showWarnings = FALSE)
+example_tsv <- file.path(example_website_path, 'web.tsv')
+
+## Save the example table as a file
+write.table(easyweb_example, file = example_tsv, sep = '\t',
+    quote = FALSE, row.names = FALSE)
+
+## Build the website
+easyweb(example_tsv, path = example_website_path, overwrite = TRUE)
 ```
-
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub\!
