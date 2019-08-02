@@ -8,15 +8,11 @@ title: "Contact information"
 
 email_list
 
-### Address
-
 address_list
-
-### Phone
 
 phone_list
 
-### Links
+### User profiles
 
 institution_link
 
