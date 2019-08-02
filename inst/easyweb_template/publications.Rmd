@@ -5,7 +5,7 @@
 
 # Main publications
 
-```{r, results = 'asis', echo = FALSE, warning = FALSE, message = FALSE, eval = file.exists('citations.bib')}
+```{r publications, results = 'asis', echo = FALSE, warning = FALSE, message = FALSE, eval = file.exists('citations.bib')}
 library('knitcitations')
 bib <- read.bibtex('citations.bib')
 
