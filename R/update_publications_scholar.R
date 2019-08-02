@@ -13,7 +13,7 @@ update_publications_scholar <- function(path, web_tab) {
             pub_list$author <- gsub('\\.\\.\\.', 'et al', pub_list$author)
 
             ## TODO: improve this
-            update_text <- with(pub_list, paste0('* ', author, '. ',
+            update_text <- with(pub_list, paste0('1. ', author, '. ',
                 title, '. ', journal, ', ', year, '.\n', collapse = ''))
             user_link <- paste0(
                 '# [Google Scholar](https://scholar.google.com/citations?user=', id,
