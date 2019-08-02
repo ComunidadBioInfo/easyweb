@@ -30,6 +30,7 @@ presence started!
 \examples{
 
 ## Example easyweb table
+options(width = 200)
 easyweb_example
 
 ## Create an example website directory where the files will be saved
