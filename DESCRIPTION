@@ -16,7 +16,7 @@ Authors@R:
     email = "lcolladotor@gmail.com", comment = c(ORCID = "0000-0003-2140-308X"))
     )
 Description: This package provides a fast and easy way to build your own website
-    in order to start creating your online presence. The website will be freely
+    in order to start creating your online presence. The website can be freely
     hosted by GitHub.
 License: What license it uses
 Encoding: UTF-8
@@ -24,3 +24,9 @@ LazyData: true
 RoxygenNote: 6.1.1
 Suggests: 
     testthat (>= 2.1.0)
+Imports: 
+    rmarkdown,
+    scholar,
+    utils,
+    purrr,
+    knitcitations
